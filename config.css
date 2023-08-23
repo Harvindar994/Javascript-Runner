@@ -1,0 +1,37 @@
+:root {
+  /* font size */
+  --console-heading: 16px;
+  --console-text: 16px;
+
+  /* color's */
+  --error: #fa4436;
+  --error-heading: #e23a2e;
+
+  --warn: #caa500;
+  --warn-heading: #b19001;
+
+  --debug: #e48100;
+  --debug-heading: #b46601;
+
+  --log: rgb(2, 190, 190);
+  --log-heading: rgb(0, 148, 148);
+
+  /* buttons font size and color */
+  --button-font-size: 20px;
+  --button-color: black;
+
+  /* types of logs to show */
+  --logs: true;
+  --errors: true;
+  --warns: true;
+  --debugs: true;
+}
+
+/* 
+
+console.log
+console.error
+console.warn
+console.debug
+
+*/

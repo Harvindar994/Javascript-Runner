@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+
+    <!-- icons cdn -->
+    <script
+      src="https://kit.fontawesome.com/3616505ddd.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="console">
+      <div class="logs_conatiner">
+        <div class="logs">
+          <!-- <div class="output warn">
+            <div class="heading">Output</div>
+            <div class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+              similique magnam soluta hic deleniti tempora iusto sit numquam rerum
+              animi!
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="menu">
+        <div class="options">
+          <button id="button-clear">
+            <i class="fa-solid fa-broom"></i>
+          </button>
+          <button id="button-reload">
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+        </div>
+        <hr />
+        <div class="active-logs">
+          <button id="button-log" class="" style="color: var(--log)">
+            <i class="fa-solid fa-file-lines"></i>
+          </button>
+          <button id="button-error" style="color: var(--error)">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </button>
+          <button id="button-warn" style="color: var(--warn)">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </button>
+          <button id="button-debug" style="color: var(--debug)">
+            <i class="fa-solid fa-bug"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="main.js"></script>
+  <script src="learn.js"></script>
+</html>
