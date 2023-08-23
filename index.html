@@ -23,7 +23,7 @@
   <body>
     <div class="console">
       <div class="logs_conatiner">
-        <div class="logs">
+        <div class="logs" id="system-logs">
           <!-- <div class="output warn">
             <div class="heading">Output</div>
             <div class="text">
@@ -46,16 +46,20 @@
         </div>
         <hr />
         <div class="active-logs">
-          <button id="button-log" class="" style="color: var(--log)">
+          <button id="button-log" name="log" style="color: var(--log)">
+            <div class="indicator"></div>
             <i class="fa-solid fa-file-lines"></i>
           </button>
-          <button id="button-error" style="color: var(--error)">
+          <button id="button-error" name="error" style="color: var(--error)">
+            <div class="indicator"></div>
             <i class="fa-solid fa-circle-exclamation"></i>
           </button>
-          <button id="button-warn" style="color: var(--warn)">
+          <button id="button-warn" name="warn" style="color: var(--warn)">
+            <div class="indicator"></div>
             <i class="fa-solid fa-triangle-exclamation"></i>
           </button>
-          <button id="button-debug" style="color: var(--debug)">
+          <button id="button-debug" name="debug" style="color: var(--debug)">
+            <div class="indicator"></div>
             <i class="fa-solid fa-bug"></i>
           </button>
         </div>

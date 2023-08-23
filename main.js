@@ -43,109 +43,181 @@ console.debug = function () {
 }
 
 
-// here fetching all the element from page that will help to create a console.
-var logs = document.querySelector(".logs");
-var css = getComputedStyle(document.querySelector(':root'));
+var LogManager = function () {
+    this.buttons_status = {};
 
-var button_clean = document.querySelector("#button-clear")
-var button_reload = document.querySelector("#button-reload")
+    this.chnage_state = (event) => {
+        var target = event.currentTarget;
 
-var indicator_logs = document.querySelector("#button-log")
-var indicator_error = document.querySelector("#button-error")
-var indicator_warn = document.querySelector("#button-warn")
-var indicator_debug = document.querySelector("#button-debug")
+        var logs = this.system_logs.querySelectorAll(`[name="${target.name}"]`);
+        var visibility_status = eval(localStorage.getItem(target.name));
 
+        if (visibility_status) {
+            // here deactivating button.
+            target.classList.remove("active");
+            localStorage.setItem(target.name, false);
 
-var logs_flag = css.getPropertyValue("--logs");
-var error_flag = css.getPropertyValue("--errors");
-var warn_flag = css.getPropertyValue("--warns");
-var debug_flag = css.getPropertyValue("--debugs");
+            // here let's hide all the logs.
+            for (var log of logs) {
+                log.style.display = "none";
+            }
+        }
+        else {
+            // here activating button.
+            target.classList.add("active");
+            localStorage.setItem(target.name, true);
 
-if (logs_flag == "true") {
-    indicator_logs.classList.add("active");
+            for (var log of logs) {
+                log.style.display = null;
+            }
+        }
+
+        this.buttons_status[button.name] = eval(localStorage.getItem(button.name));
+    }
+
+    this.add_log = function (log) {
+        this.system_logs.append(log);
+    }
+
+    this.get_state = function (log_type) {
+        if (log_type in this.buttons_status) {
+            return this.buttons_status[log_type];
+        }
+        return null;
+    }
+
+    this.clear = () => {
+        this.system_logs.innerHTML = "";
+    }
+
+    this.reload_browser = () => {
+        window.location.reload(true);
+    }
+
+    this.__init__ = function () {
+        this.system_logs = document.querySelector("#system-logs");
+        this.log_buttons = document.querySelector(".active-logs").children;
+
+        this.button_clean = document.querySelector("#button-clear");
+        this.button_reload = document.querySelector("#button-reload");
+
+        // here connecting buttons.
+        this.button_reload.addEventListener("click", this.reload_browser);
+        this.button_clean.addEventListener("click", this.clear);
+
+        // let's check if buttons are already active or not.
+        for (let button of this.log_buttons) {
+            // here add event listner on button.
+            button.addEventListener("click", this.chnage_state);
+
+            //  here checking button state
+            var button_status = localStorage.getItem(button.name);
+            if (button_status == null) {
+                localStorage.setItem(button.name, true);
+                button.classList.add("active");
+            }
+            else {
+                if (button_status) {
+                    button.classList.add('active');
+                }
+                else {
+                    button.classList.remove('active');
+                }
+            }
+
+            this.buttons_status[button.name] = eval(localStorage.getItem(button.name));
+        }
+    }
+
+    this.__init__();
 }
-if (error_flag == "true") {
-    indicator_error.classList.add("active");
-}
-if (warn_flag == "true") {
-    indicator_warn.classList.add("active");
-}
-if (debug_flag == "true") {
-    indicator_debug.classList.add("active");
-}
 
-button_clean.addEventListener("click", () => {
-    logs.innerHTML = "";
-})
-
-button_reload.addEventListener("click", () => {
-    window.location.reload(true);
-})
+var log_manager = new LogManager();
 
 // here creating function's that will be called on on each push.
 function logCall() {
-    if (logs_flag == "true") {
-        while (console.logs.length > 0) {
-            var log = document.createElement("div")
-            log.classList = "output log";
-            log.innerHTML = `
+    while (console.logs.length > 0) {
+        var log = document.createElement("div")
+        log.setAttribute("name", "log");
+        log.classList = "output log";
+        log.innerHTML = `
             <div class="heading" >Output</div>
             <div class="text">${console.logs.splice(-1, 1)}</div>`;
-            logs.append(log);
+        log_manager.add_log(log);
+
+        // here setting up visibility.
+        if (log_manager.get_state('log')) {
+            log.style.display = null;
         }
-    }
-    else {
-        console.logs.length = 0;
+        else {
+            log.style.display = "none";
+        }
     }
 }
 
 function errorCall() {
-    if (error_flag == "true") {
-        while (console.errors.length > 0) {
-            var log = document.createElement("div")
-            log.classList = "output error";
-            log.innerHTML = `
+
+    while (console.errors.length > 0) {
+        var log = document.createElement("div");
+        log.setAttribute("name", "error");
+        log.classList = "output error";
+        log.innerHTML = `
         <div class="heading" >Error</div>
         <div class="text">${console.errors.splice(0, 1)}</div>`;
-            logs.append(log);
+        log_manager.add_log(log);
+
+        // here setting up visibility.
+        if (log_manager.get_state('error')) {
+            log.style.display = null;
+        }
+        else {
+            log.style.display = "none";
         }
     }
-    else {
-        console.errors.length = 0;
-    }
-
 }
 
 function warnCall() {
-    if (warn_flag == "true") {
-        while (console.warns.length > 0) {
-            var log = document.createElement("div")
-            log.classList = "output warn";
-            log.innerHTML = `
+
+    while (console.warns.length > 0) {
+        var log = document.createElement("div");
+        log.setAttribute("name", "warn");
+        log.classList = "output warn";
+        log.innerHTML = `
             <div class="heading" >Warning</div>
             <div class="text">${console.warns.splice(0, 1)}</div>`;
-            logs.append(log);
+        log_manager.add_log(log);
+
+        // here setting up visibility.
+        if (log_manager.get_state('warn')) {
+            log.style.display = null;
+        }
+        else {
+            log.style.display = "none";
         }
     }
-    else {
-        console.warns.length = 0;
-    }
+
 }
 
 function debugCall() {
-    if (debug_flag == "true") {
-        while (console.debugs.length > 0) {
-            var log = document.createElement("div")
-            log.classList = "output debug";
-            log.innerHTML = `
+
+    while (console.debugs.length > 0) {
+        var log = document.createElement("div");
+        log.setAttribute("name", "debug");
+        log.classList = "output debug";
+        log.innerHTML = `
             <div class="heading" >Debug</div>
             <div class="text">${console.debugs.splice(0, 1)}</div>`;
-            logs.append(log);
+        log_manager.add_log(log);
+
+        // here setting up visibility.
+        if (log_manager.get_state('log')) {
+            log.style.display = null;
+        }
+        else {
+            log.style.display = "none";
         }
     }
-    else {
-        console.debugs.length = 0;
-    }
+
 }
 
 //  here binding a function with all the array's that will be called on each push.
