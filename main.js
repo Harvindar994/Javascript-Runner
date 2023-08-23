@@ -44,7 +44,6 @@ console.debug = function () {
 
 
 var LogManager = function () {
-    this.buttons_status = {};
 
     this.chnage_state = (event) => {
         var target = event.currentTarget;
@@ -71,8 +70,6 @@ var LogManager = function () {
                 log.style.display = null;
             }
         }
-
-        this.buttons_status[button.name] = eval(localStorage.getItem(button.name));
     }
 
     this.add_log = function (log) {
@@ -80,10 +77,7 @@ var LogManager = function () {
     }
 
     this.get_state = function (log_type) {
-        if (log_type in this.buttons_status) {
-            return this.buttons_status[log_type];
-        }
-        return null;
+        return eval(localStorage.getItem(log_type));
     }
 
     this.clear = () => {
@@ -111,7 +105,7 @@ var LogManager = function () {
             button.addEventListener("click", this.chnage_state);
 
             //  here checking button state
-            var button_status = localStorage.getItem(button.name);
+            var button_status = eval(localStorage.getItem(button.name));
             if (button_status == null) {
                 localStorage.setItem(button.name, true);
                 button.classList.add("active");
@@ -124,8 +118,6 @@ var LogManager = function () {
                     button.classList.remove('active');
                 }
             }
-
-            this.buttons_status[button.name] = eval(localStorage.getItem(button.name));
         }
     }
 
@@ -210,7 +202,7 @@ function debugCall() {
         log_manager.add_log(log);
 
         // here setting up visibility.
-        if (log_manager.get_state('log')) {
+        if (log_manager.get_state('debug')) {
             log.style.display = null;
         }
         else {
