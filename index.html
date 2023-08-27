@@ -18,55 +18,169 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="app/css/style.css" />
   </head>
   <body>
+    <div class="add-file-dialog hide">
+      <div class="close-button" id="close-add-file-dialog">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="heading">
+        <i class="fa-brands fa-square-js"></i>Add New File
+      </div>
+      <div class="description">
+        The file you're going to add should be available in the
+        <span>Learning</span> folder of your project.
+      </div>
+      <input id="add-file-name" type="text" placeholder="example.js" />
+      <div class="add-file-error">invlid file</div>
+      <button id="add-file-continue" name="add-button">
+        Continue<i class="fa-solid fa-arrow-right-long"></i>
+      </button>
+    </div>
+
+    <div class="add-file-dialog add-testing-button hide">
+      <div class="close-button">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </div>
+      <div class="heading">
+        <i class="fa-solid fa-puzzle-piece"></i>Create Button
+      </div>
+      <div class="description">
+        To change icon, use the <span>id</span> of existing button, to add new
+        give a unique id.
+      </div>
+      <div class="inputs">
+        <input type="text" placeholder="Fontawesome icon" />
+        <input type="text" placeholder="Button id" />
+      </div>
+      <div class="add-file-error">invlid file</div>
+      <div class="buttons">
+        <button id="add-button-remove" name="add-button">
+          Remove<i class="fa-regular fa-trash-can"></i>
+        </button>
+        <button id="add-button-continue" name="add-button">
+          Continue<i class="fa-solid fa-arrow-right-long"></i>
+        </button>
+      </div>
+    </div>
+
     <div class="console">
       <div class="logs_conatiner">
         <div class="logs" id="system-logs">
-          <!-- <div class="output warn">
+          <!-- <div class="output input">
             <div class="heading">Output</div>
             <div class="text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              similique magnam soluta hic deleniti tempora iusto sit numquam rerum
-              animi!
+              <input type="text" class="log-input" />
+              <div class="info">
+                <div class="force">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div class="log-type log-type-log">
+                  <i class="fa-solid fa-file-lines"></i>
+                </div>
+                <div class="log-type log-type-error">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <div class="log-type log-type-warn">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="log-type log-type-debug">
+                  <i class="fa-solid fa-bug"></i>
+                </div>
+                <div class="log-type">
+                  <i class="fa-solid fa-keyboard"></i>
+                </div>
+                <div class="log-count">545</div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="output input input-animation">
+            <div class="heading">Input</div>
+            <div class="text">
+              <input
+                name="active"
+                type="text"
+                class="log-input"
+                placeholder="Your message here"
+              />
+              <div class="info">
+                <div class="info-keyboard" id="info-keyboard">
+                  <i class="fa-solid fa-keyboard"></i>
+                </div>
+                <div class="log-count">0</div>
+              </div>
             </div>
           </div> -->
         </div>
       </div>
 
+      <div class="file_manager">
+        <div class="header">
+          <div class="title">
+            <h1><i class="fa-brands fa-square-js"></i> Files</h1>
+            <p>All your javascript files are here.</p>
+          </div>
+          <div class="close">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </div>
+        </div>
+        <hr />
+        <div class="files"></div>
+      </div>
+
       <div class="menu">
         <div class="options">
-          <button id="button-clear">
+          <button id="button-clear" title="clear logs">
             <i class="fa-solid fa-broom"></i>
           </button>
-          <button id="button-reload">
+          <button id="button-reload" title="reload browser">
             <i class="fa-solid fa-rotate-right"></i>
+          </button>
+          <button id="button-add-file" title="add file">
+            <i class="fa-solid fa-file-circle-plus"></i>
+          </button>
+          <button id="button-show-files" title="Files">
+            <i class="fa-solid fa-laptop-file"></i>
+          </button>
+          <button id="button-add-button" title="Add testing button">
+            <i class="fa-solid fa-flask-vial"></i>
           </button>
         </div>
         <hr />
         <div class="active-logs">
-          <button id="button-log" name="log" style="color: var(--log)">
+          <button id="button-log" name="log" title="normal cosole output">
             <div class="indicator"></div>
             <i class="fa-solid fa-file-lines"></i>
           </button>
-          <button id="button-error" name="error" style="color: var(--error)">
+          <button id="button-error" name="error" title="error messages">
             <div class="indicator"></div>
             <i class="fa-solid fa-circle-exclamation"></i>
           </button>
-          <button id="button-warn" name="warn" style="color: var(--warn)">
+          <button id="button-warn" name="warn" title="warning messages">
             <div class="indicator"></div>
             <i class="fa-solid fa-triangle-exclamation"></i>
           </button>
-          <button id="button-debug" name="debug" style="color: var(--debug)">
+          <button id="button-debug" name="debug" title="debuging messages">
             <div class="indicator"></div>
             <i class="fa-solid fa-bug"></i>
+          </button>
+          <button id="button-input" name="input" title="finished inputs">
+            <div class="indicator"></div>
+            <i class="fa-solid fa-keyboard"></i>
+          </button>
+        </div>
+        <hr />
+        <div class="testing-buttons">
+          <button id="testing" title="For testing purpose, ID: testing">
+            <i class="fa-solid fa-microscope"></i>
           </button>
         </div>
       </div>
     </div>
   </body>
 
-  <script src="main.js"></script>
-  <script src="learn.js"></script>
+  <script type="module" src="app/main.js"></script>
+  <script type="module" src="Learning/learn.js"></script>
 </html>

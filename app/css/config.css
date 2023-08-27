@@ -1,0 +1,27 @@
+:root {
+  --javascript: 245, 185, 4;
+
+  --peace: 255, 255, 255;
+  --primary: 2, 190, 190;
+  --primary-2: 62, 62, 62;
+  --primary-dark: 0, 0, 0;
+  --primary-bg: 241, 241, 241;
+
+  --input: 32, 156, 226;
+  --input-light: 32, 156, 226;
+
+  --log: 0, 148, 148;
+  --log-light: var(--primary);
+
+  --error: 226, 58, 46;
+  --error-light: 236, 42, 28;
+
+  --warn: 177, 144, 1;
+  --warn-light: 216, 175, 0;
+
+  --debug: 180, 102, 1;
+  --debug-light: 245, 139, 0;
+
+  --primary-font-size: 16px;
+  --primary-button-size: 20px;
+}

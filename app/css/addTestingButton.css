@@ -1,0 +1,27 @@
+.add-testing-button .inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.add-testing-button .inputs input {
+  flex: 1;
+}
+
+.add-testing-button .buttons {
+  display: flex;
+  align-self: flex-end;
+  gap: 10px;
+}
+
+#add-button-remove {
+  background-color: rgba(var(--error-light), 100%);
+  box-shadow: 1px 1px 20px 0px rgba(var(--error-light), 50%);
+}
+
+#add-button-remove:hover {
+  background-color: rgba(var(--error-light), 90%);
+}
+
+#add-button-continue {
+  box-shadow: 1px 1px 20px 0px rgba(var(--log-light), 50%);
+}
