@@ -1,0 +1,103 @@
+.activeFileStack {
+  font-size: var(--primary-font-size);
+  background-color: rgba(var(--peace), 100%);
+  border-radius: 8px;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+  /* box-shadow: 7px 10px 20px 0px rgba(var(--primary-2), 10%); */
+}
+
+.activeFileStack .header {
+  padding: 14px 20px;
+  background-color: rgba(var(--javascript), 100%);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px 0px 0px 8px;
+  border: 2px solid rgba(var(--javascript), 100%);
+  font-size: calc(var(--primary-font-size) + 8px);
+  color: rgba(var(--primary-2), 100%);
+  box-shadow: 0px 0px 10px 0px rgba(var(--javascript), 100%);
+}
+
+.activefiles {
+  padding: 7px 10px;
+  display: flex;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+  border-radius: 0px 8px 8px 0px;
+  border-top: 3px solid rgba(var(--primary-bg), 100%);
+  border-right: 3px solid rgba(var(--primary-bg), 100%);
+  border-bottom: 3px solid rgba(var(--primary-bg), 100%);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.activefiles::-webkit-scrollbar {
+  height: 2px;
+  display: none;
+}
+
+.activefiles::-webkit-scrollbar-track {
+  background: rgba(var(--primary-2), 20%);
+  margin: 0px 10px 0px 10px;
+  /* border-left: 10px solid rgba(var(--peace), 100%); */
+}
+
+.activefiles::-webkit-scrollbar-track:hover {
+  background: rgba(var(--primary-2), 20%);
+}
+
+.activefiles::-webkit-scrollbar-thumb {
+  background: rgba(var(--primary-2), 40%);
+  /* border-left: 10px solid rgba(var(--peace), 100%); */
+}
+
+.activefiles::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--primary-2), 50%);
+}
+
+.activeFileStack .activefiles .file {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  background-color: rgba(var(--primary-bg), 100%);
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.activeFileStack .activefiles .file .run {
+  font-size: 80%;
+  color: rgba(var(--primary), 100%);
+  cursor: pointer;
+}
+
+.activeFileStack .activefiles .file .name {
+  flex: 1;
+  font-size: 80%;
+}
+
+.activeFileStack .activefiles .file .close {
+  font-size: 60%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  transition: all 0.2s;
+}
+
+.activeFileStack .activefiles .file .close:hover {
+  background-color: rgba(var(--error-light), 100%);
+  color: rgba(var(--peace), 100%);
+}

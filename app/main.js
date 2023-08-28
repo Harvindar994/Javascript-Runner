@@ -2,6 +2,7 @@ import { FileManager } from './components/fileManager.js';
 import { Prompt } from './components/prompt.js';
 import { LogManager } from './components/logManager.js';
 
+
 // Here binding up the console with a function that will help to store all the logs in list.
 
 
@@ -238,26 +239,7 @@ console.debugs.push = function () {
 };
 
 
-function loadJS(FILE_URL, async = true) {
-    let scriptEle = document.createElement("script");
-
-    scriptEle.setAttribute("src", FILE_URL);
-    scriptEle.setAttribute("type", "text/javascript");
-    scriptEle.setAttribute("async", async);
-
-    document.body.appendChild(scriptEle);
-
-    // success event 
-    scriptEle.addEventListener("load", () => {
-        console.debug(`->force:File loaded: ${FILE_URL}`,)
-    });
-    // error event
-    scriptEle.addEventListener("error", (ev) => {
-        console.debug(`->force:Error on loading file: ${FILE_URL}`, ev);
-    });
-}
-
 
 //  here setting up components.
-var file_manager = new FileManager(log_manager);
 let prompt = new Prompt(log_manager);
+var file_manager = new FileManager(log_manager);

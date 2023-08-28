@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="app/css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div class="add-file-dialog hide">
@@ -33,9 +33,13 @@
         <span>Learning</span> folder of your project.
       </div>
       <input id="add-file-name" type="text" placeholder="example.js" />
-      <div class="add-file-error">invlid file</div>
+      <div class="file-active-status">
+        <input type="checkbox" id="isActive" />
+        Run file once it's been added.
+      </div>
       <button id="add-file-continue" name="add-button">
         Continue<i class="fa-solid fa-arrow-right-long"></i>
+        <div class="add-file-error">invlid file</div>
       </button>
     </div>
 
@@ -66,68 +70,104 @@
     </div>
 
     <div class="console">
-      <div class="logs_conatiner">
-        <div class="logs" id="system-logs">
-          <!-- <div class="output input">
-            <div class="heading">Output</div>
-            <div class="text">
-              <input type="text" class="log-input" />
-              <div class="info">
-                <div class="force">
-                  <i class="fa-solid fa-bolt"></i>
+      <div class="console-group">
+        <div class="activeFileStack">
+          <div class="header">
+            <i class="fa-brands fa-square-js"></i>
+          </div>
+          <div class="activefiles">
+            <!-- example -->
+            <!-- <div class="file">
+              <div class="run"><i class="fa-solid fa-play"></i></div>
+              <div class="name">example.js</div>
+              <div class="close"><i class="fa-solid fa-xmark"></i></div>
+            </div> -->
+          </div>
+        </div>
+        <div class="logs_conatiner">
+          <div class="logs" id="system-logs">
+            <!-- <div class="output input">
+              <div class="heading">Output</div>
+              <div class="text">
+                <input type="text" class="log-input" />
+                <div class="info">
+                  <div class="force">
+                    <i class="fa-solid fa-bolt"></i>
+                  </div>
+                  <div class="log-type log-type-log">
+                    <i class="fa-solid fa-file-lines"></i>
+                  </div>
+                  <div class="log-type log-type-error">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                  </div>
+                  <div class="log-type log-type-warn">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                  </div>
+                  <div class="log-type log-type-debug">
+                    <i class="fa-solid fa-bug"></i>
+                  </div>
+                  <div class="log-type">
+                    <i class="fa-solid fa-keyboard"></i>
+                  </div>
+                  <div class="log-count">545</div>
                 </div>
-                <div class="log-type log-type-log">
-                  <i class="fa-solid fa-file-lines"></i>
-                </div>
-                <div class="log-type log-type-error">
-                  <i class="fa-solid fa-circle-exclamation"></i>
-                </div>
-                <div class="log-type log-type-warn">
-                  <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-                <div class="log-type log-type-debug">
-                  <i class="fa-solid fa-bug"></i>
-                </div>
-                <div class="log-type">
-                  <i class="fa-solid fa-keyboard"></i>
-                </div>
-                <div class="log-count">545</div>
               </div>
-            </div>
-          </div> -->
+            </div> -->
 
-          <!-- <div class="output input input-animation">
-            <div class="heading">Input</div>
-            <div class="text">
-              <input
-                name="active"
-                type="text"
-                class="log-input"
-                placeholder="Your message here"
-              />
-              <div class="info">
-                <div class="info-keyboard" id="info-keyboard">
-                  <i class="fa-solid fa-keyboard"></i>
+            <!-- <div class="output input input-animation">
+              <div class="heading">Input</div>
+              <div class="text">
+                <input
+                  name="active"
+                  type="text"
+                  class="log-input"
+                  placeholder="Your message here"
+                />
+                <div class="info">
+                  <div class="info-keyboard" id="info-keyboard">
+                    <i class="fa-solid fa-keyboard"></i>
+                  </div>
+                  <div class="log-count">0</div>
                 </div>
-                <div class="log-count">0</div>
               </div>
-            </div>
-          </div> -->
+            </div> -->
+          </div>
         </div>
       </div>
 
-      <div class="file_manager">
+      <div class="file_manager" id="fileExplorer">
         <div class="header">
           <div class="title">
             <h1><i class="fa-brands fa-square-js"></i> Files</h1>
             <p>All your javascript files are here.</p>
           </div>
-          <div class="close">
-            <i class="fa-solid fa-circle-xmark"></i>
+          <div class="close" id="fileExplorerClose">
+            <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
         <hr />
-        <div class="files"></div>
+        <div class="files">
+          <!-- example 1 -->
+          <!-- <div class="file">
+            <div class="status status-active">
+              <i class="fa-brands fa-square-js"></i>
+            </div>
+            <div class="name">example.js</div>
+            <div class="remove">
+              <i class="fa-solid fa-minus"></i>
+            </div>
+          </div> -->
+          <!-- example 2 -->
+          <!-- <div class="file">
+            <div class="status">
+              <i class="fa-brands fa-square-js"></i>
+            </div>
+            <div class="name">example.js</div>
+            <div class="remove">
+              <i class="fa-solid fa-minus"></i>
+            </div>
+          </div> -->
+        </div>
       </div>
 
       <div class="menu">
@@ -181,6 +221,5 @@
     </div>
   </body>
 
-  <script type="module" src="app/main.js"></script>
-  <script type="module" src="Learning/learn.js"></script>
+  <script type="module" src="main.js"></script>
 </html>

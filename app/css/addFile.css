@@ -15,6 +15,7 @@
   flex-direction: column;
   justify-content: center;
   font-size: 14px;
+  z-index: 3;
   color: rgba(var(--primary-dark), 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,6 +57,15 @@
   font-size: 16px;
 }
 
+.file-active-status {
+  display: flex;
+  font-size: 90%;
+  gap: 8px;
+  margin-top: 10px;
+  font-weight: 300;
+  padding-left: 2px;
+}
+
 .add-file-dialog button {
   background-color: rgba(var(--primary), 100%);
   border: none;
@@ -69,7 +79,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
   cursor: pointer;
 }
 

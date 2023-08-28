@@ -1,4 +1,5 @@
-
+console.log("it's learn File");
+console.log("it's learn File2");
 
 
 function myname(first, mid, last) {
@@ -9,6 +10,4 @@ function myname(first, mid, last) {
 }
 
 
-document.querySelector("#testing").addEventListener("click", (event) => {
-    console.input(myname);
-});
+// console.input(myname);

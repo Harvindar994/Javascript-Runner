@@ -5,7 +5,7 @@ let Storage = function () {
     this.set = (key, value) => {
         var data = JSON.parse(localStorage.getItem(AppName));
         data[key] = value;
-        localStorage.setItem(AppName, JSON.stringify);
+        localStorage.setItem(AppName, JSON.stringify(data));
     }
 
     this.get = (key) => {

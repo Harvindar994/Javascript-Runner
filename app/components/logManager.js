@@ -133,6 +133,7 @@ var LogManager = function () {
                 }
             }
         }
+
     }
 
     this.__init__();

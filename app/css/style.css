@@ -1,7 +1,8 @@
 @import url("config.css");
 @import url("addFile.css");
 @import url("addTestingButton.css");
-@import url("file_manager.css");
+@import url("fileManager.css");
+@import url("activeFileStack.css");
 
 * {
   margin: 0;
@@ -23,27 +24,31 @@ body {
 
 .console {
   height: 100%;
+  width: 100%;
   display: flex;
-  padding: 10px 0px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  position: relative;
 }
 
 .menu {
-  margin: 0px 10px;
-  background-color: rgba(var(--primary-bg), 100%);
+  margin: 0px 0px 0px 10px;
+  background-color: rgba(var(--peace), 100%);
   padding: 10px 10px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  border: 3px solid rgba(var(--peace), 100%);
+  border: 3px solid rgba(var(--primary-bg), 100%);
   box-shadow: 7px 10px 45px 0px rgba(var(--primary-2), 40%);
   overflow-y: auto;
+  z-index: 2;
 }
 
 .menu button {
   font-size: var(--primary-button-size);
   color: rgba(var(--primary-2), 100%);
+  background-color: transparent;
   border: none;
   padding: 12px;
   display: flex;
@@ -56,7 +61,7 @@ body {
 }
 
 .menu button:hover {
-  background-color: rgba(var(--peace), 100%);
+  background-color: rgba(var(--primary-bg), 100%);
   color: rgba(var(--log), 100%);
 }
 
@@ -121,16 +126,22 @@ body {
   background: rgba(var(--primary-2), 50%);
 }
 
+.console-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 15px;
+}
+
 .logs_conatiner {
   overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
-  padding-right: 10px;
-  flex: 1;
+  /* padding-right: 10px; */
 }
 
 .logs_conatiner::-webkit-scrollbar {
-  width: 5px;
+  width: 15px;
   border-radius: 0px;
 }
 
@@ -138,6 +149,7 @@ body {
   border-radius: 0px;
   background: rgba(var(--primary-bg), 100%);
   margin: 0px 0px 0px 0px;
+  border-left: 10px solid rgba(var(--peace), 1000%);
 }
 
 .logs_conatiner::-webkit-scrollbar-track:hover {
@@ -147,6 +159,7 @@ body {
 .logs_conatiner::-webkit-scrollbar-thumb {
   background: rgba(var(--primary-2), 30%);
   border-radius: 0px;
+  border-left: 10px solid rgba(var(--peace), 100%);
 }
 
 .logs_conatiner::-webkit-scrollbar-thumb:hover {
