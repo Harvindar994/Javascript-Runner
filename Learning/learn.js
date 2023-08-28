@@ -1,13 +1,7 @@
-console.log("it's learn File");
-console.log("it's learn File2");
-
-
-function myname(first, mid, last) {
-    console.log(`Your Name:
-    first: ${first} <br>
-    mid: ${mid} <br>
-    last: ${last}`);
+function myname(first, last) {
+    console.log(first + " " + last)
 }
 
+console.input(myname);
 
-// console.input(myname);
+console.log("after input");

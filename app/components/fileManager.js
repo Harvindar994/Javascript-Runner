@@ -93,8 +93,8 @@ let FileManager = function (log_manager) {
         })
 
         label.querySelector(".close").addEventListener("click", (event) => {
+            this.active_stack_labels[event.currentTarget.getAttribute("name")].remove();
             this.deactive_file(event.currentTarget.getAttribute("name"));
-            this.active_stack_labels[file].remove();
         })
 
         this.active_stack_labels[file] = label;
@@ -151,7 +151,7 @@ let FileManager = function (log_manager) {
 
     this.runJs = (file) => {
         try {
-            eval(this.activate_file[file]);
+            eval(this.active_stack[file]);
         } catch (error) {
             console.error(`->force:${error}`);
         }
@@ -165,6 +165,7 @@ let FileManager = function (log_manager) {
                 this.set_file_label_status(file, true);
                 this.add_active_stack_label(file);
                 const scriptContent = await response.text();
+                this.active_stack[file] = scriptContent;
                 eval(scriptContent); // Evaluate the script content
             }
             else {
