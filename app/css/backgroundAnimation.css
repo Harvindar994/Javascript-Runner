@@ -1,0 +1,60 @@
+.bg-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.wrap-2 {
+  position: fixed;
+  z-index: -30;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  filter: blur(10);
+  /* background: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#438ee1),
+    to(#973999)
+  );
+  background: linear-gradient(to bottom right, #ff512f, #dd2476); */
+}
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.animation-active .activeFileStack {
+  backdrop-filter: blur(6px);
+  background-color: rgba(var(--peace), 70%);
+}
+
+.animation-active .output {
+  background-color: rgba(var(--primary-bg), 70%);
+}
+.animation-active .input .log-input {
+  background-color: rgba(var(--peace), 70%);
+  border-radius: 5px 5px 5px 5px;
+}
+.animation-active .menu {
+  background-color: rgba(var(--peace), 70%);
+  backdrop-filter: blur(6px);
+}
+.animation-active .file_manager {
+  background-color: rgba(var(--peace), 70%);
+  backdrop-filter: blur(16px);
+}
+.animation-active .add-file-dialog {
+  background-color: rgba(var(--peace), 70%);
+  border: 3px solid rgba(var(--primary-bg), 100%);
+  backdrop-filter: blur(16px);
+}
+.animation-active .file_manager .files .file {
+  box-shadow: inset 0 0 0 2px rgba(var(--primary-2), 14%);
+}

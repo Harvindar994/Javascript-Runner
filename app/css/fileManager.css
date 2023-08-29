@@ -77,6 +77,8 @@
   gap: 12px;
   align-items: center;
   padding-bottom: 3px;
+  font-weight: 700;
+  font-size: 200%;
 }
 
 .file_manager .header h1 i {

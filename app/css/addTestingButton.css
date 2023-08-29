@@ -1,3 +1,11 @@
+/* .add-testing-button .heading i {
+  filter: drop-shadow(0px 0px 20px rgba(var(--javascript), 90%));
+} */
+
+.add-testing-button .description {
+  margin-bottom: 15px;
+}
+
 .add-testing-button .inputs {
   display: flex;
   gap: 10px;
@@ -11,6 +19,7 @@
   display: flex;
   align-self: flex-end;
   gap: 10px;
+  margin-top: 16px;
 }
 
 #add-button-remove {

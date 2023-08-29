@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Sass to CSS",
+            "type": "shell",
+            "command": "node-sass",
+            "args": [
+                "--watch",
+                "app/sass",
+                "-o",
+                "app/css",
+                "--output-style",
+                "expanded"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

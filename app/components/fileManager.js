@@ -157,6 +157,16 @@ let FileManager = function (log_manager) {
         }
     };
 
+    this.run_all_files = () => {
+        try {
+            for (let file in this.active_stack) {
+                eval(this.active_stack[file]);
+            }
+        } catch (error) {
+            console.error(`->force:${error}`);
+        }
+    }
+
 
     this.add_in_active_stack = async (file) => {
         try {

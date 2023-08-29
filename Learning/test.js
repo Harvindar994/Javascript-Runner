@@ -1,8 +1,4 @@
-console.log("Hello");
-console.log("Hello");
-
-(params) => {
-    // Your code here
-}
-
-document.querySelector('query');
+console.log("Hello Word");
+console.error("Hello Word");
+console.debug("Hello Word");
+console.warn("Hello Word");

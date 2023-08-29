@@ -6,10 +6,11 @@
     <title>JavaScript</title>
 
     <!-- icons cdn -->
-    <script
+    <!-- <script
       src="https://kit.fontawesome.com/3616505ddd.js"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
+    <link rel="stylesheet" href="./icons/css/all.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,6 +22,14 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <!-- creating animation -->
+
+    <div class="bg-animation">
+      <div class="wrap-2"><canvas id="liquid"></canvas></div>
+    </div>
+
+    <!-- end animation -->
+
     <div class="add-file-dialog hide">
       <div class="close-button" id="close-add-file-dialog">
         <i class="fa-solid fa-circle-xmark"></i>
@@ -30,7 +39,8 @@
       </div>
       <div class="description">
         The file you're going to add should be available in the
-        <span>Learning</span> folder of your project.
+        <span>Learning</span> folder of your project. For multiple files Enter
+        names separated by <span>commas</span>.
       </div>
       <input id="add-file-name" type="text" placeholder="example.js" />
       <div class="file-active-status">
@@ -84,6 +94,7 @@
             </div> -->
           </div>
         </div>
+
         <div class="logs_conatiner">
           <div class="logs" id="system-logs">
             <!-- <div class="output input">
@@ -135,6 +146,27 @@
         </div>
       </div>
 
+      <div class="systemSettings">
+        <div class="header">
+          <div class="title">
+            <h1><i class="fa-brands fa-square-js"></i> Settings</h1>
+            <p>All your settings are here.</p>
+          </div>
+          <div class="close" id="systemSettingsClose">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <hr />
+        <div class="settings">
+          <div class="setting">
+            <div class="header">
+              <div class="name">Background Animation</div>
+              <button type=""></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="file_manager" id="fileExplorer">
         <div class="header">
           <div class="title">
@@ -172,6 +204,9 @@
 
       <div class="menu">
         <div class="options">
+          <button id="button-run" title="Run Code">
+            <i class="fa-solid fa-play"></i>
+          </button>
           <button id="button-clear" title="clear logs">
             <i class="fa-solid fa-broom"></i>
           </button>
@@ -182,10 +217,14 @@
             <i class="fa-solid fa-file-circle-plus"></i>
           </button>
           <button id="button-show-files" title="Files">
-            <i class="fa-solid fa-laptop-file"></i>
+            <!-- <i class="fa-solid fa-laptop-file"></i> -->
+            <i class="fa-solid fa-layer-group"></i>
           </button>
           <button id="button-add-button" title="Add testing button">
             <i class="fa-solid fa-flask-vial"></i>
+          </button>
+          <button id="button-system-settings" title="Add testing button">
+            <i class="fa-solid fa-gear"></i>
           </button>
         </div>
         <hr />
@@ -221,5 +260,8 @@
     </div>
   </body>
 
+  <!-- <script src="./components/tailwind.js"></script> -->
+  <script type="text/javascript" src="./components/UiComponent.js"></script>
   <script type="module" src="main.js"></script>
+  <script type="module" src="./components/bgAnimation.js"></script>
 </html>

@@ -79,6 +79,10 @@
   cursor: pointer;
 }
 
+.activeFileStack .activefiles .file .run:hover {
+  color: rgba(var(--run-code), 100%);
+}
+
 .activeFileStack .activefiles .file .name {
   flex: 1;
   font-size: 80%;

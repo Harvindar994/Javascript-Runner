@@ -1,8 +1,12 @@
+@import url("UiComponent.css");
 @import url("config.css");
 @import url("addFile.css");
 @import url("addTestingButton.css");
 @import url("fileManager.css");
 @import url("activeFileStack.css");
+@import url("backgroundAnimation.css");
+@import url("menu.css");
+@import url("settings.css");
 
 * {
   margin: 0;

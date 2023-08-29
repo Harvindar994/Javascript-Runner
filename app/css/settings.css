@@ -1,0 +1,170 @@
+.systemSettings {
+  position: absolute;
+  min-width: 420px;
+  right: 10px;
+  background-color: rgba(var(--peace), 100%);
+  border: 3px solid rgba(var(--primary-bg), 100%);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  height: calc(100% - 20px);
+  padding: 30px 40px 10px 40px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 7px 10px 45px 0px rgba(var(--primary-2), 40%);
+  font-size: var(--primary-font-size);
+  visibility: hidden;
+  z-index: 2;
+  --file-manager-animation-time: 0.5s;
+  animation-name: settings-show;
+  animation-timing-function: ease-out;
+  animation-duration: var(--file-manager-animation-time);
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  display: none;
+  /* Here designing file label */
+}
+.systemSettings hr {
+  border: 0px;
+  width: 100%;
+  border-bottom: 1px solid rgba(var(--primary-2), 20%);
+  border-radius: 3px;
+}
+.systemSettings .header {
+  display: flex;
+  margin-bottom: 26px;
+  justify-content: space-between;
+}
+.systemSettings .header h1 {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 3px;
+  font-weight: 700;
+  font-size: 200%;
+}
+.systemSettings .header h1 i {
+  color: rgba(var(--javascript), 100%);
+  filter: drop-shadow(0px 7px 31px rgba(var(--javascript), 255));
+}
+.systemSettings .header p {
+  font-size: 70%;
+}
+.systemSettings .header .close {
+  background-color: rgba(var(--primary-bg), 100%);
+  font-size: 80%;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  width: 25px;
+  height: 25px;
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-top: 10px;
+  padding-top: 2px;
+}
+.systemSettings .header .close:hover {
+  background-color: rgba(var(--error), 100%);
+  color: rgba(var(--peace), 100%);
+  box-shadow: 7px 10px 45px 0px rgba(var(--primary), 40%);
+}
+.systemSettings .settings {
+  padding-top: 20px;
+  padding-bottom: 8px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.systemSettings .settings::-webkit-scrollbar {
+  width: 14px;
+}
+.systemSettings .settings::-webkit-scrollbar-track {
+  background: rgba(var(--primary-2), 20%);
+  margin: 22px 0px 9px 0px;
+  border-left: 10px solid rgba(var(--peace), 100%);
+}
+.systemSettings .settings::-webkit-scrollbar-track:hover {
+  background: rgba(var(--primary-2), 20%);
+}
+.systemSettings .settings::-webkit-scrollbar-thumb {
+  background: rgba(var(--primary-2), 40%);
+  border-left: 10px solid rgba(var(--peace), 100%);
+}
+.systemSettings .settings::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--primary-2), 50%);
+}
+.systemSettings .settings .file {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 4px 14px 4px 14px;
+  cursor: pointer;
+}
+.systemSettings .settings .file:hover {
+  box-shadow: inset 0 0 0 2px rgba(var(--primary-bg), 100%);
+}
+.systemSettings .settings .file .status {
+  font-size: 150%;
+}
+.systemSettings .settings .file .status-active {
+  color: rgba(var(--javascript), 100%);
+}
+.systemSettings .settings .file .name {
+  flex: 1;
+  font-size: 85%;
+}
+.systemSettings .settings .file .remove {
+  font-size: 80%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  cursor: pointer;
+  padding-top: 3px;
+}
+.systemSettings .settings .file .remove:hover {
+  background-color: rgba(var(--error), 80%);
+  color: rgba(var(--peace), 100%);
+}
+
+.settings-show {
+  animation-name: file-manager-show;
+}
+
+@keyframes settings-show {
+  0% {
+    right: 10px;
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    right: calc(var(--file-manager-right-position) + 20px);
+  }
+}
+@keyframes settings-hide {
+  0% {
+    opacity: 1;
+    right: calc(var(--file-manager-right-position) + 20px);
+    visibility: visible;
+  }
+  99% {
+    right: 10px;
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    right: 10px;
+    visibility: hidden;
+    opacity: 0;
+  }
+}

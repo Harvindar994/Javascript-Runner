@@ -7,9 +7,9 @@
   transform: translate(-50%, -50%);
   padding: 0px 66px;
   border-radius: 20px;
-  border: 3px solid rgba(var(--peace), 100%);
+  border: 3px solid rgba(var(--primary-bg), 100%);
   z-index: 1;
-  background-color: rgba(var(--primary-bg), 50%);
+  background-color: rgba(var(--peace), 0%);
   backdrop-filter: blur(15px);
   display: flex;
   flex-direction: column;
@@ -25,9 +25,9 @@
 
 .add-file-dialog .heading {
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 700;
   margin-bottom: 5px;
-  color: rgba(var(--primary), 100%);
+  color: rgba(var(--primary-dark), 100%);
   display: flex;
   gap: 10px;
   justify-content: start;
@@ -35,13 +35,16 @@
 }
 
 .add-file-dialog .heading i {
-  font-size: 112%;
+  font-size: 140%;
   color: rgba(var(--javascript), 100%);
+  filter: drop-shadow(0px 0px 20px rgba(var(--javascript), 90%));
+  transform: translateY(-3px);
 }
 
 .add-file-dialog .description {
   margin-bottom: 20px;
   font-weight: 300;
+  font-size: 80%;
 }
 
 .add-file-dialog .description span {
@@ -50,8 +53,8 @@
 }
 
 .add-file-dialog input {
-  border: 1px solid rgba(var(--primary), 100%);
-  background-color: rgba(var(--peace), 100%);
+  border: 2px solid rgba(var(--primary-dark), 37%);
+  background-color: rgba(var(--peace), 0%);
   padding: 10px;
   border-radius: 8px;
   font-size: 16px;
@@ -100,10 +103,15 @@
 }
 
 .add-file-dialog .close-button {
-  color: rgba(var(--error-light), 100%);
+  /* color: rgba(var(--error-light), 100%); */
   font-size: 22px;
   position: absolute;
   right: 23px;
   top: 20px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-file-dialog .close-button:hover {
+  color: rgba(var(--error-light), 100%);
 }
