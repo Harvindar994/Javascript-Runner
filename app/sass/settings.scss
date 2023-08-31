@@ -12,7 +12,6 @@
     flex-direction: column;
     box-shadow: 7px 10px 45px 0px rgba(var(--primary-2), 40%);
     font-size: var(--primary-font-size);
-    visibility: hidden;
     z-index: 2;
 
     --file-manager-animation-time: 0.5s;
@@ -79,17 +78,46 @@
     /* Here designing file label */
 
     .settings {
-        padding-top: 20px;
+        height: 100%;
+        padding-top: 29px;
         padding-bottom: 8px;
         display: flex;
-        gap: 5px;
+        gap: 27px;
         flex-direction: column;
         overflow-y: auto;
         overflow-x: hidden;
         
         .setting{
-            
+                display: flex;
+                flex-direction: column;
+                gap: 22px;
+                user-select: none;
+                
+                .header{
+                    font-size: 80%;
+                    align-items: center;
+                    margin-bottom: 0;
+                    gap: 20px;
+                }
+
+                .sub-setting{
+                    margin-left: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    background-color: rgba(var(--primary-bg), 60%);
+                    padding: 20px 20px;
+                    border-radius: 8px;
+                }
         }
+
+        .inactive{
+            .sub-setting{
+                filter: grayscale(1);
+                pointer-events: none;
+            }
+        }
+
     }
 
     .settings::-webkit-scrollbar {

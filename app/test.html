@@ -19,24 +19,47 @@
     </style>
   </head>
   <body>
-    <button class="toggle">
-      <label class="toggle">
+    <!-- Toggle Button -->
+    <button class="toggle" scale="0.8">
+      <label>
         <input type="checkbox" />
         <span class="slider"></span>
       </label>
     </button>
 
-    <div class="dropdown">
+    <!-- Drop Input -->
+    <div class="dropdown" width="250px">
       <div class="input">
-        <i class="fa-solid fa-moon"></i>
-        <input type="text" name="" id="" value="Dark" />
+        <i name="active-icon" class="fa-solid fa-moon"></i>
+        <input type="text" name="" id="" value="Dark" readonly />
         <div class="show">
-          <i class="fa-solid fa-chevron-down"></i>
+          <i class="fa-solid fa-chevron-up up-arrow"></i>
+          <i class="fa-solid fa-chevron-down down-arrow"></i>
         </div>
       </div>
       <div class="list">
         <div class="list-item"><i class="fa-solid fa-moon"></i> Dark</div>
         <div class="list-item"><i class="fa-solid fa-sun"></i> Light</div>
+      </div>
+    </div>
+
+    <!-- Range Input -->
+    <div class="rangeInput" width="250px">
+      <input type="range" min="0" max="100" />
+    </div>
+
+    <!-- Button -->
+    <div class="primary-button gapBorder" width="250px">
+      <div class="icon">
+        <i class="fa-solid fa-mobile-button"></i>
+      </div>
+      <div class="name">Example</div>
+    </div>
+
+    <div class="select-dir">
+      <input type="text" name="" id="" />
+      <div class="primary-button gapBorder" width="250px">
+        <div class="name">Example</div>
       </div>
     </div>
 

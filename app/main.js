@@ -3,7 +3,7 @@ import { Prompt } from './components/prompt.js';
 import { LogManager } from './components/logManager.js';
 import { Menu } from './components/menu.js';
 import { SystemSettings } from "./components/settings.js"
-
+import { UiComponent } from "./components/UiComponent.js"
 
 // Here binding up the console with a function that will help to store all the logs in list.
 
@@ -243,6 +243,7 @@ console.debugs.push = function () {
 
 
 //  here setting up components.
+let ui_component = new UiComponent();
 let prompt = new Prompt(log_manager);
 var file_manager = new FileManager(log_manager);
 let system_setting = new SystemSettings()

@@ -51,7 +51,7 @@
   position: relative;
   display: inline-block;
   font-size: var(--primary-font-size);
-  width: 250px;
+  font-weight: 400;
 }
 .dropdown .input {
   display: flex;
@@ -61,8 +61,11 @@
   padding: 8px 15px;
   border-radius: 8px;
   border: 1px solid rgba(var(--primary-bg), 100%);
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
 }
-.dropdown .input i {
+.dropdown .input i[name=active-icon] {
   font-size: 100%;
   color: rgba(var(--primary), 100%);
   margin-right: 10px;
@@ -70,14 +73,23 @@
 .dropdown .input input {
   background-color: transparent;
   border: none;
-  flex: 1;
-  font-size: 80%;
+  width: 100%;
+  font-size: 90%;
+  cursor: pointer;
+  font-weight: 400;
 }
 .dropdown .input input:focus-visible {
   outline: none;
 }
 .dropdown .input .show {
   cursor: pointer;
+  font-size: 70%;
+}
+.dropdown .input .show .up-arrow {
+  display: none;
+}
+.dropdown .input .show .down-arrow {
+  display: initial;
 }
 .dropdown .list {
   background-color: rgba(var(--peace), 100%);
@@ -88,10 +100,16 @@
   gap: 2px;
   position: absolute;
   width: 100%;
-  bottom: 0;
-  transform: translateY(calc(100% + 5px));
+  top: 0;
   border-radius: 8px;
-  font-size: 80%;
+  font-size: 90%;
+  visibility: hidden;
+  z-index: 1;
+  animation-name: dropdownAnimationInactive;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
 }
 .dropdown .list .list-item {
   padding: 10px 10px;
@@ -107,4 +125,86 @@
 }
 .dropdown .list .list-item:hover {
   background-color: rgba(var(--primary-bg), 100%);
+}
+
+.dropdown-active .input .show .up-arrow {
+  display: initial;
+}
+.dropdown-active .input .show .down-arrow {
+  display: none;
+}
+.dropdown-active .list {
+  animation-name: dropdownAnimationActive;
+  visibility: visible;
+}
+
+@keyframes dropdownAnimationActive {
+  0% {
+    visibility: visible;
+    opacity: 0;
+    top: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    top: calc(100% + 5px);
+  }
+}
+@keyframes dropdownAnimationInactive {
+  0% {
+    visibility: visible;
+    opacity: 1;
+    top: calc(100% + 5px);
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+    top: 0;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+  }
+}
+.rangeInput {
+  display: flex;
+}
+.rangeInput input {
+  flex: 1;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: var(--primary-font-size);
+  background-color: rgba(var(--primary), 70%);
+  color: rgba(var(--peace), 100%);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: calc(var(--primary-font-size) - 20%);
+}
+
+.primary-button:hover {
+  background-color: rgba(var(--primary), 100%);
+}
+
+.gapBorder:hover {
+  box-shadow: 0 0 0 4px rgba(var(--primary-2), 100%);
+  outline: 2px solid rgba(var(--peace), 100%);
+}
+
+.select-dir {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.select-dir input {
+  border: none;
+}
+.select-dir input:focus-visible {
+  outline: none;
 }
