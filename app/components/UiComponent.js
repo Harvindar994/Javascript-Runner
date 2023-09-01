@@ -112,11 +112,75 @@ var UiComponent = function () {
         }
     }
 
+    this.onClickSelectDir = async (event) => {
+        let directory;
+
+        try {
+            directory = await window.showDirectoryPicker({
+                "mode": "read"
+            });
+
+            let select_file = event.target;
+            while (!select_file.classList.contains("select-dir")) {
+                select_file = select_file.parentNode;
+            }
+
+            if (select_file.getAttribute("files") == "true") {
+
+                var files = [];
+
+                for await (const entry of directory.values()) {
+                    if (entry.kind == "file" && entry.name.endsWith(".js")) {
+                        files.push(entry.name);
+                    }
+                }
+
+                select_file.files = files;
+            }
+
+            select_file.setAttribute("value", directory.name);
+            select_file.querySelector("input").value = directory.name;
+
+        } catch (e) {
+            console.error(`->force:${e}`);
+        }
+    }
+
+
+    this.init_selectDir = () => {
+        var selectDirs = document.querySelectorAll('.select-dir');
+
+        for (var selectDir of selectDirs) {
+            selectDir.addEventListener(
+                "click",
+                this.onClickSelectDir
+            )
+
+            // Here applying width on element if width attribute is there.
+            if (selectDir.getAttribute('width')) {
+                selectDir.style.width = selectDir.getAttribute('width');
+            }
+
+            // Here applying height on element if height attribute is there.
+            if (selectDir.getAttribute('height')) {
+                selectDir.style.height = selectDir.getAttribute('height');
+            }
+
+            // Here applying scale on element if scale attribute is there.
+            if (selectDir.getAttribute('scale')) {
+                selectDir.style.transform = `scale(${selectDir.getAttribute('scale')})`;
+            }
+        }
+
+    }
+
+
     this.__init__ = function () {
         this.init_toggle();
         this.init_dropDown();
         this.init_rangeInput();
         this.init_primaryButton();
+        this.init_selectDir();
     }
 
     this.__init__();

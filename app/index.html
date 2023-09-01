@@ -185,7 +185,7 @@
           </div>
 
           <!-- animation setting -->
-          <div class="setting inactive">
+          <div class="setting">
             <div class="header">
               <div class="name">Background Animation</div>
               <!-- Toggle Button -->
@@ -200,10 +200,16 @@
               <div class="header">
                 <div class="name">Animation Type</div>
                 <!-- Drop Input -->
-                <div class="dropdown" width="150px">
+                <div class="dropdown" width="155px">
                   <div class="input">
-                    <i name="active-icon" class="fa-solid fa-moon"></i>
-                    <input type="text" name="" id="" value="Dark" readonly />
+                    <i name="active-icon" class="fa-solid fa-water"></i>
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      value="Liquid Bubbles"
+                      readonly
+                    />
                     <div class="show">
                       <i class="fa-solid fa-chevron-up up-arrow"></i>
                       <i class="fa-solid fa-chevron-down down-arrow"></i>
@@ -211,10 +217,19 @@
                   </div>
                   <div class="list">
                     <div class="list-item">
-                      <i class="fa-solid fa-moon"></i> Dark
+                      <i class="fa-solid fa-water"></i> Bubbles
                     </div>
+
                     <div class="list-item">
-                      <i class="fa-solid fa-sun"></i> Light
+                      <i class="fa-solid fa-person-hiking"></i> Big Things
+                    </div>
+
+                    <div class="list-item">
+                      <i class="fa-solid fa-volcano"></i> Volcanic Ash
+                    </div>
+
+                    <div class="list-item">
+                      <i class="fa-regular fa-snowflake"></i> Winter Lake
                     </div>
                   </div>
                 </div>
@@ -261,10 +276,7 @@
           <!-- Creating Files setting -->
           <div class="setting">
             <div class="header">
-              <div class="name">
-                Wile Adding File <br />
-                Open Explorer To Create File
-              </div>
+              <div class="name">Use File Explorer To Manage Files</div>
               <!-- Toggle Button -->
               <button class="toggle" scale="0.8">
                 <label>
@@ -272,6 +284,42 @@
                   <span class="slider"></span>
                 </label>
               </button>
+              <!-- <div class="warning">
+                <div class="notch"><i class="fa-solid fa-caret-up"></i></div>
+                You will be able to add only one file at a time if this option
+                is turned on.
+              </div> -->
+            </div>
+
+            <div class="sub-setting">
+              <div class="header">
+                <div class="name">Use File Explorer To Add New Files</div>
+                <!-- Radio Button -->
+                <input type="radio" name="" id="" />
+              </div>
+
+              <div class="header">
+                <div class="name">
+                  Wile Adding File <br />
+                  Open Explorer To Create File
+                </div>
+                <!-- Radio Button -->
+                <input type="radio" name="" id="" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Default Dir setting -->
+          <div class="setting">
+            <div class="header">
+              <div class="name">Default Directory</div>
+              <!-- Select Dir -->
+              <div class="select-dir" height="35px" files="true">
+                <input type="text" name="" id="" readonly value="Learning" />
+                <div class="info">
+                  <i class="fa-regular fa-folder-open"></i>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -284,7 +332,7 @@
               <div
                 class="primary-button gapBorder"
                 width="106px"
-                height="33px"
+                height="35px"
                 scale="0.92"
               >
                 <div class="icon">

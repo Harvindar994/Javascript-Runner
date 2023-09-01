@@ -17,6 +17,51 @@ let FileManager = function (log_manager) {
         this.add_file_dialog.classList.remove("hide");
     }
 
+    this.add_file_using_explorer = async (event) => {
+        let saveFile;
+
+        try {
+            saveFile = await window.showOpenFilePicker({
+                multiple: true,
+                types: [
+                    {
+                        description: 'JavaScript Files',
+                        accept: {
+                            "javascript/*": [".js",],
+                        }
+                    },
+                ]
+            });
+
+            // here fetching active status;
+            let active_status = false;
+
+            let files = this.storage.get("files");
+            if (files == null) {
+                files = {};
+            }
+
+            for (let file of saveFile) {
+                console.log(file.name, file.kind);
+
+                if (file.name in files) {
+                    console.error(`->force:'${file}' this file is already there.`);
+                }
+                else {
+                    this.add_file_label(file.name, active_status);
+                    files[file.name] = active_status;
+                }
+            }
+
+            this.storage.set("files", files);
+            this.files = files;
+
+        } catch (e) {
+            console.error(`->force:${e}`);
+        }
+    }
+
+
     this.add_file = async () => {
         var file_name = this.add_file_dialog.querySelector("#add-file-name").value;
         var active_status = this.add_file_dialog.querySelector("#isActive").checked;

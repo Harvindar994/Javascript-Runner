@@ -82,7 +82,7 @@
         padding-top: 29px;
         padding-bottom: 8px;
         display: flex;
-        gap: 27px;
+        gap: 30px;
         flex-direction: column;
         overflow-y: auto;
         overflow-x: hidden;
@@ -98,6 +98,38 @@
                     align-items: center;
                     margin-bottom: 0;
                     gap: 20px;
+                    position: relative;
+
+                    .warning {
+                        background-color: rgba(var(--warn-light), 100%);
+                        color: rgba(var(--peace), 100%);
+                        padding: 10px 20px;
+                        position: absolute;
+                        width: 100%;
+                        border-radius: 5px;
+                        font-size: 85%;
+                        top: calc(100% + 15px);
+                        z-index: 1;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: all 0.5s;
+
+                        .notch{
+                            font-size: calc(var(--primary-font-size) + 150%);
+                            position: absolute;
+                            top: 0px;
+                            left: 10%;
+                            transform: translate(-50%, -50%);
+                            color: rgba(var(--warn-light), 100%);
+                        }
+                    }
+                }
+
+                .header:hover{
+                    .warning{
+                        visibility: visible;
+                        opacity: 1;
+                    }
                 }
 
                 .sub-setting{
