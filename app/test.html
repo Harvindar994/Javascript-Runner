@@ -57,7 +57,7 @@
     </div>
 
     <!-- Select Dir -->
-    <div class="select-dir">
+    <div class="select-dir" height="35px" files="true" type="input">
       <input type="text" name="" id="" readonly value="Learning" />
       <div class="info">
         <i class="fa-regular fa-folder-open"></i>
@@ -67,28 +67,19 @@
     <!-- Radio Button -->
     <div class="radio-buttons-container">
       <!-- button -1 -->
-      <div class="radio-button">
-        <input
-          name="radio-group"
-          id="radio2"
-          class="radio-button__input"
-          type="radio"
-        />
-        <label for="radio2" class="radio-button__label">
-          <span class="radio-button__custom"></span>
+      <div class="radio-button" group="setting-file-explorer">
+        <input type="radio" checked />
+        <label>
+          <div class="name">Name</div>
+          <span class="custom"></span>
         </label>
       </div>
 
-      <!-- button -2 -->
-      <div class="radio-button">
-        <input
-          name="radio-group"
-          id="radio1"
-          class="radio-button__input"
-          type="radio"
-        />
-        <label for="radio1" class="radio-button__label">
-          <span class="radio-button__custom"></span>
+      <!-- radio button-->
+      <div class="radio-button" group="setting-file-explorer">
+        <input type="radio" />
+        <label>
+          <span class="custom"></span>
         </label>
       </div>
     </div>

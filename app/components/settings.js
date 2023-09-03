@@ -9,6 +9,9 @@ let SystemSettings = function () {
     }
 
 
+    this.onSettingChnage = (event) => {
+
+    }
 
     this.__init__ = function () {
         this.systemSettings = document.querySelector('.systemSettings');

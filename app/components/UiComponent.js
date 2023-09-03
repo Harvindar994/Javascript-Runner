@@ -1,4 +1,4 @@
-var UiComponent = function () {
+let UiComponent = function () {
 
     this.init_toggle = () => {
         var toggles = document.querySelectorAll('.toggle');
@@ -146,15 +146,39 @@ var UiComponent = function () {
         }
     }
 
+    this.onSaveSelectDir = (event) => {
+
+        let select_file = event.target;
+        while (!select_file.classList.contains("select-dir")) {
+            select_file = select_file.parentNode;
+        }
+
+        select_file.setAttribute(
+            "value",
+            select_file.querySelector("input").value
+        );
+    }
 
     this.init_selectDir = () => {
         var selectDirs = document.querySelectorAll('.select-dir');
 
         for (var selectDir of selectDirs) {
-            selectDir.addEventListener(
-                "click",
-                this.onClickSelectDir
-            )
+            var type = selectDir.getAttribute("type");
+
+            if (type == "input") {
+                selectDir.querySelector(".info").addEventListener(
+                    "click",
+                    this.onSaveSelectDir
+                )
+            }
+            else if (type == "select") {
+
+                selectDir.addEventListener(
+                    "click",
+                    this.onClickSelectDir
+                )
+
+            }
 
             // Here applying width on element if width attribute is there.
             if (selectDir.getAttribute('width')) {
@@ -174,17 +198,70 @@ var UiComponent = function () {
 
     }
 
+    this.onClickRadioButton = (event) => {
+        for (var radio_button of this.radio_button_state[event.currentTarget.getAttribute("group")]) {
+            if (event.currentTarget == radio_button) {
+                radio_button.setAttribute("value", true);
+                radio_button.querySelector("input").checked = true;
+            }
+            else {
+                radio_button.setAttribute("value", false);
+                radio_button.querySelector("input").checked = false;
+            }
+        }
+    }
+
+    this.init_radioButton = () => {
+        let radio_buttons = document.querySelectorAll(".radio-button");
+
+        for (let radio_button of radio_buttons) {
+            radio_button.addEventListener(
+                'click',
+                this.onClickRadioButton
+            );
+
+            radio_button.querySelector("input").setAttribute(
+                "name",
+                radio_button.getAttribute("group")
+            );
+
+            if (this.radio_button_state[radio_button.getAttribute("group")]) {
+                this.radio_button_state[radio_button.getAttribute("group")].push(radio_button);
+            }
+            else {
+                this.radio_button_state[radio_button.getAttribute("group")] = [radio_button,];
+            }
+
+            if (radio_button.querySelector("input").checked) {
+                radio_button.setAttribute("value", true);
+            }
+            else {
+                radio_button.setAttribute("value", false);
+            }
+
+            // Here applying scale on element if scale attribute is there.
+            if (radio_button.getAttribute('scale')) {
+                radio_button.style.transform = `scale(${radio_button.getAttribute('scale')})`;
+            }
+        }
+    }
+
 
     this.__init__ = function () {
+        this.radio_button_state = {};
+
         this.init_toggle();
         this.init_dropDown();
         this.init_rangeInput();
         this.init_primaryButton();
         this.init_selectDir();
+        this.init_radioButton();
+
     }
 
     this.__init__();
 }
 
+// UiComponent();
 
 export { UiComponent };

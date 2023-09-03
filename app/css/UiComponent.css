@@ -234,6 +234,14 @@
   transition: all 0.5s;
 }
 
+.select-dir[type=input] input {
+  cursor: auto;
+}
+
+.select-dir[type=select] input {
+  cursor: pointer;
+}
+
 .select-dir:hover .info {
   transform: translateX(0%);
 }
@@ -248,50 +256,53 @@
   display: inline-block;
   position: relative;
   cursor: pointer;
+  display: flex;
 }
-
-.radio-button__input {
+.radio-button input {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
-
-.radio-button__label {
-  display: inline-block;
-  padding-left: 30px;
-  margin-bottom: 10px;
+.radio-button label {
+  min-width: 18px;
+  min-height: 18px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   position: relative;
-  font-size: 16px;
-  color: #fff;
+  font-size: calc(var(--primary-font-size) - 10%);
+  color: rgba(var(--primary-2), 100%);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
-.radio-button__custom {
+.radio-button label .custom {
   position: absolute;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
+  min-width: 18px;
+  min-height: 18px;
   border-radius: 50%;
-  border: 2px solid #555;
+  border: 2px solid rgba(var(--primary-2), 100%);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
-
-.radio-button__input:checked + .radio-button__label .radio-button__custom {
-  transform: translateY(-50%) scale(0.9);
-  border: 5px solid #4c8bf5;
-  color: #4c8bf5;
+.radio-button label .name {
+  margin-left: 25px;
 }
-
-.radio-button__input:checked + .radio-button__label {
-  color: #4c8bf5;
-}
-
-.radio-button__label:hover .radio-button__custom {
+.radio-button label:hover .custom {
   transform: translateY(-50%) scale(1.2);
-  border-color: #4c8bf5;
-  box-shadow: 0 0 10px rgba(76, 139, 245, 0.5019607843);
+  border-color: rgba(var(--primary), 100%);
+  box-shadow: 0 0 10px rgba(var(--primary), 100%);
+}
+.radio-button input:checked + label {
+  color: rgba(var(--primary), 100%);
+}
+.radio-button input:checked + label .custom {
+  transform: translateY(-50%) scale(0.95);
+  border: 5px solid rgba(var(--primary), 100%);
+  color: rgba(var(--primary), 100%);
 }

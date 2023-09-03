@@ -163,7 +163,7 @@
             <div class="header">
               <div class="name">Theme</div>
               <!-- Drop Input -->
-              <div class="dropdown" width="150px">
+              <div class="dropdown" width="150px" value="Dark">
                 <div class="input">
                   <i name="active-icon" class="fa-solid fa-moon"></i>
                   <input type="text" name="" id="" value="Dark" readonly />
@@ -294,8 +294,13 @@
             <div class="sub-setting">
               <div class="header">
                 <div class="name">Use File Explorer To Add New Files</div>
-                <!-- Radio Button -->
-                <input type="radio" name="" id="" />
+                <!-- radio button-->
+                <div class="radio-button" group="setting-file-explorer">
+                  <input type="radio" checked />
+                  <label>
+                    <span class="custom"></span>
+                  </label>
+                </div>
               </div>
 
               <div class="header">
@@ -303,8 +308,13 @@
                   Wile Adding File <br />
                   Open Explorer To Create File
                 </div>
-                <!-- Radio Button -->
-                <input type="radio" name="" id="" />
+                <!-- radio button-->
+                <div class="radio-button" group="setting-file-explorer">
+                  <input type="radio" />
+                  <label>
+                    <span class="custom"></span>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
@@ -314,8 +324,8 @@
             <div class="header">
               <div class="name">Default Directory</div>
               <!-- Select Dir -->
-              <div class="select-dir" height="35px" files="true">
-                <input type="text" name="" id="" readonly value="Learning" />
+              <div class="select-dir" height="35px" files="true" type="input">
+                <input type="text" name="" id="" value="Learning" />
                 <div class="info">
                   <i class="fa-regular fa-folder-open"></i>
                 </div>
