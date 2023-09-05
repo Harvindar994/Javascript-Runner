@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Bungee+Hairline|Lato:300");
+.big-things-animation {
+  visibility: hidden;
+}
+.big-things-animation a {
+  text-decoration: none;
+}
+.big-things-animation .page {
+  height: 100%;
+  background-color: transparent;
+}
+.big-things-animation .main-page-content {
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgba(var(--peace), 100%);
+}
+.big-things-animation .main-page-content h1 {
+  font-family: "Bungee Hairline";
+  font-size: 60px;
+}
+.big-things-animation .main-page-content h2 {
+  font-family: "Lato";
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+.big-things-animation .universe {
+  z-index: -10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: contrast(120%);
+  background-color: black;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+.big-things-animation .universe-container {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(1600px at 70% 120%, rgb(33, 39, 80) 10%, #020409 100%);
+}
+.big-things-animation .content {
+  width: inherit;
+  height: inherit;
+}
+.big-things-animation #universe {
+  width: 100%;
+  height: 100%;
+}
+.big-things-animation #footer {
+  position: absolute;
+  bottom: 0px;
+  height: 300px;
+  width: 100%;
+}
+.big-things-animation #scene {
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -800px;
+  z-index: 100000;
+}
+
+.big-things-animation-active .big-things-animation {
+  visibility: visible;
+}
+
+.big-things-animation-active .activeFileStack {
+  mix-blend-mode: exclusion;
+}
+
+.big-things-animation-active .output {
+  background-color: rgba(var(--primary-bg), 18%);
+}
+.big-things-animation-active .output .text {
+  color: rgba(var(--peace), 100%);
+}
+
+.big-things-animation-active .input .text .log-input {
+  background-color: rgba(var(--peace), 18%);
+  border-radius: 5px 5px 5px 5px;
+  color: rgba(var(--peace), 100%);
+}
+.big-things-animation-active .input .text .log-count {
+  background-color: rgba(var(--peace), 10%);
+}
+
+.big-things-animation-active .menu {
+  mix-blend-mode: exclusion;
+}
+
+.big-things-animation-active .add-file-dialog {
+  background-color: rgba(var(--peace), 100%);
+  border: 3px solid rgba(var(--primary-bg), 100%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
