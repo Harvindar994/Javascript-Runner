@@ -6,7 +6,7 @@
   border: 3px solid rgba(var(--primary-bg), 100%);
   border-radius: 10px;
   -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   height: calc(100% - 20px);
   padding: 30px 40px 10px 40px;
   display: flex;
@@ -15,7 +15,7 @@
   font-size: var(--primary-font-size);
   z-index: 2;
   --file-manager-animation-time: 0.5s;
-  animation-name: settings-show;
+  animation-name: settings-hide;
   animation-timing-function: ease-out;
   animation-duration: var(--file-manager-animation-time);
   animation-direction: alternate;
@@ -84,8 +84,8 @@
   flex-direction: column;
   gap: 22px;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 .systemSettings .settings .setting .header {
   font-size: 80%;

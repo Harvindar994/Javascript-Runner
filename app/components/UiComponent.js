@@ -6,6 +6,22 @@ let UiComponent = function () {
         for (var toggle of toggles) {
             toggle.addEventListener("click", this.onClickToggle);
 
+            // here let's define getter and setter.
+            toggle.set = function (value) {
+                value = eval(value);
+                this.querySelector("input").checked = value;
+                this.setAttribute("value", this.querySelector("input").checked);
+                return this.querySelector("input").checked;
+            }
+
+            toggle.get = function () {
+                return this.querySelector("input").checked;
+            }
+
+            toggle.getID = function () {
+                return this.getAttribute("id");
+            }
+
             // Here applying scale on element if scale attribute is there.
             if (toggle.getAttribute('scale')) {
                 toggle.style.transform = `scale(${toggle.getAttribute('scale')})`;
@@ -22,6 +38,42 @@ let UiComponent = function () {
 
         for (var dropdown of dropDowns) {
             dropdown.addEventListener("click", this.onClickDropDown);
+
+            // here let's define getter and setter.
+            dropdown.set = function (value) {
+                var list_items = this.querySelectorAll(".list-item");
+
+                for (var list_item of list_items) {
+                    // here creating div to extract text.
+                    var div = document.createElement("div");
+                    div.innerHTML = list_item.innerHTML;
+
+                    if (div.innerText.trim() == value) {
+                        this.querySelector("input").value = value;
+                        this.setAttribute("value", value);
+
+                        // here setting up active icon.
+                        if (this.querySelector(".input").querySelector("[name='active-icon']")) {
+                            this.querySelector(".input").querySelector("[name='active-icon']").setAttribute(
+                                'class',
+                                list_item.querySelector("i").getAttribute('class')
+                            );
+                        }
+
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            dropdown.get = function () {
+                return this.querySelector("input").value;
+            }
+
+            dropdown.getID = function () {
+                return this.getAttribute("id");
+            }
 
             // Here applying width on element if width attribute is there.
             if (dropdown.getAttribute('width')) {
@@ -73,6 +125,22 @@ let UiComponent = function () {
 
         for (var rangeInput of rangeInputs) {
             rangeInput.addEventListener('input', this.onValueChnageRangeInput);
+
+            // here setting up getter and setter.
+            rangeInput.set = function (value) {
+                this.querySelector('input').value = value;
+                this.setAttribute('value', value);
+                return this.querySelector('input').value;
+            }
+
+            rangeInput.get = function () {
+                return this.querySelector('input').value;
+            }
+
+            rangeInput.getID = function () {
+                return this.getAttribute('id');
+            }
+
 
             // Here applying width on element if width attribute is there.
             if (rangeInput.getAttribute('width')) {
@@ -180,6 +248,21 @@ let UiComponent = function () {
 
             }
 
+            // let's setup setter and getter.
+            selectDir.get = function () {
+                return this.querySelector("input").value;
+            }
+
+            selectDir.set = function (value) {
+                this.querySelector("input").value = value;
+                this.setAttribute("value", value);
+                return value;
+            }
+
+            selectDir.getID = function () {
+                return this.getAttribute("id");
+            }
+
             // Here applying width on element if width attribute is there.
             if (selectDir.getAttribute('width')) {
                 selectDir.style.width = selectDir.getAttribute('width');
@@ -219,6 +302,37 @@ let UiComponent = function () {
                 'click',
                 this.onClickRadioButton
             );
+
+            // here setting up setter and getter.
+            radio_button.set = function (value) {
+                value = eval(value);
+
+                if (value == true) {
+                    this.querySelector("input").checked = value;
+                    this.setAttribute("value", value);
+
+                    for (var other_radio of this.getGroup(this)) {
+                        if (other_radio != this) {
+                            other_radio.querySelector("input").checked = !eval(value);
+                            other_radio.setAttribute("value", !eval(value));
+                        }
+                    }
+
+                    return this.querySelector("input").checked;
+                }
+            }
+
+            radio_button.get = function () {
+                return this.querySelector("input").checked;
+            }
+
+            radio_button.getID = function () {
+                return this.getAttribute('id');
+            }
+
+            radio_button.getGroup = (self) => {
+                return this.radio_button_state[self.getAttribute("group")];
+            }
 
             radio_button.querySelector("input").setAttribute(
                 "name",

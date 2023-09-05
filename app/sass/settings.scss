@@ -15,7 +15,7 @@
     z-index: 2;
 
     --file-manager-animation-time: 0.5s;
-    animation-name: settings-show;
+    animation-name: settings-hide;
     animation-timing-function: ease-out;
     animation-duration: var(--file-manager-animation-time);
     animation-direction: alternate;

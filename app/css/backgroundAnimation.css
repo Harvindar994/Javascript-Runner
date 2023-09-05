@@ -3,10 +3,10 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  visibility: hidden;
+  opacity: var(--bg-animation-opacity);
 }
 
-.wrap-2 {
+/* .wrap-2 {
   position: fixed;
   z-index: -30;
   top: 0;
@@ -16,14 +16,14 @@
   width: 100vw;
   margin: auto;
   filter: blur(10);
-  /* background: -webkit-gradient(
+  background: -webkit-gradient(
     linear,
     left top,
     right bottom,
     from(#438ee1),
     to(#973999)
   );
-  background: linear-gradient(to bottom right, #ff512f, #dd2476); */
+  background: linear-gradient(to bottom right, #ff512f, #dd2476); 
 }
 canvas {
   width: 100%;
@@ -57,4 +57,4 @@ canvas {
 }
 .animation-active .file_manager .files .file {
   box-shadow: inset 0 0 0 2px rgba(var(--primary-2), 14%);
-}
+} */

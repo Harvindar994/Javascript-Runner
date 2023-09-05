@@ -21,11 +21,11 @@
 
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
+  <body class="">
     <!-- creating animation -->
 
     <div class="bg-animation">
-      <div class="wrap-2"><canvas id="liquid"></canvas></div>
+      <div class="bubbles-animation"><canvas id="liquid"></canvas></div>
     </div>
 
     <!-- end animation -->
@@ -149,7 +149,7 @@
       <div class="systemSettings">
         <div class="header">
           <div class="title">
-            <h1><i class="fa-brands fa-square-js"></i> Settings</h1>
+            <h1><i class="fa-solid fa-gear"></i> Settings</h1>
             <p>All your settings are here.</p>
           </div>
           <div class="close" id="systemSettingsClose">
@@ -163,10 +163,16 @@
             <div class="header">
               <div class="name">Theme</div>
               <!-- Drop Input -->
-              <div class="dropdown" width="150px" value="Dark">
+              <div
+                class="dropdown"
+                width="150px"
+                value="Light"
+                id="Setting_SystemTheme"
+                used_as="app_setting"
+              >
                 <div class="input">
-                  <i name="active-icon" class="fa-solid fa-moon"></i>
-                  <input type="text" name="" id="" value="Dark" readonly />
+                  <i name="active-icon" class="fa-solid fa-sun"></i>
+                  <input type="text" name="" id="" value="Light" readonly />
                   <div class="show">
                     <i class="fa-solid fa-chevron-up up-arrow"></i>
                     <i class="fa-solid fa-chevron-down down-arrow"></i>
@@ -189,7 +195,13 @@
             <div class="header">
               <div class="name">Background Animation</div>
               <!-- Toggle Button -->
-              <button class="toggle" scale="0.8">
+              <button
+                class="toggle"
+                scale="0.8"
+                id="Setting_BackgroundAnimation"
+                used_as="app_setting"
+                value="false"
+              >
                 <label>
                   <input type="checkbox" />
                   <span class="slider"></span>
@@ -200,16 +212,16 @@
               <div class="header">
                 <div class="name">Animation Type</div>
                 <!-- Drop Input -->
-                <div class="dropdown" width="155px">
+                <div
+                  class="dropdown"
+                  width="155px"
+                  id="Setting_BackgroundAnimationType"
+                  used_as="app_setting"
+                  value="Bubbles"
+                >
                   <div class="input">
                     <i name="active-icon" class="fa-solid fa-water"></i>
-                    <input
-                      type="text"
-                      name=""
-                      id=""
-                      value="Liquid Bubbles"
-                      readonly
-                    />
+                    <input type="text" name="" id="" value="Bubbles" readonly />
                     <div class="show">
                       <i class="fa-solid fa-chevron-up up-arrow"></i>
                       <i class="fa-solid fa-chevron-down down-arrow"></i>
@@ -236,9 +248,16 @@
               </div>
 
               <div class="header">
-                <div class="name">Opcity</div>
+                <div class="name">Opacity</div>
                 <!-- Range Input -->
-                <div class="rangeInput" width="200px" height="5px">
+                <div
+                  class="rangeInput"
+                  width="200px"
+                  height="5px"
+                  id="Setting_BackgroundAnimationOpacity"
+                  used_as="app_setting"
+                  value="100"
+                >
                   <input type="range" min="0" max="100" value="100" />
                 </div>
               </div>
@@ -250,7 +269,13 @@
             <div class="header">
               <div class="name">Show Testing Buttons</div>
               <!-- Toggle Button -->
-              <button class="toggle" scale="0.8">
+              <button
+                class="toggle"
+                scale="0.8"
+                id="Setting_TestingButtons"
+                used_as="app_setting"
+                value="false"
+              >
                 <label>
                   <input type="checkbox" />
                   <span class="slider"></span>
@@ -264,7 +289,13 @@
             <div class="header">
               <div class="name">Run File Just After Adding</div>
               <!-- Toggle Button -->
-              <button class="toggle" scale="0.8">
+              <button
+                class="toggle"
+                scale="0.8"
+                id="Setting_RunFiles"
+                used_as="app_setting"
+                value="false"
+              >
                 <label>
                   <input type="checkbox" />
                   <span class="slider"></span>
@@ -278,7 +309,13 @@
             <div class="header">
               <div class="name">Use File Explorer To Manage Files</div>
               <!-- Toggle Button -->
-              <button class="toggle" scale="0.8">
+              <button
+                class="toggle"
+                scale="0.8"
+                id="Setting_UseFileExplorer"
+                used_as="app_setting"
+                value="false"
+              >
                 <label>
                   <input type="checkbox" />
                   <span class="slider"></span>
@@ -295,7 +332,13 @@
               <div class="header">
                 <div class="name">Use File Explorer To Add New Files</div>
                 <!-- radio button-->
-                <div class="radio-button" group="setting-file-explorer">
+                <div
+                  class="radio-button"
+                  group="setting-file-explorer"
+                  id="Setting_FileExplorerToAddFile"
+                  used_as="app_setting"
+                  value="true"
+                >
                   <input type="radio" checked />
                   <label>
                     <span class="custom"></span>
@@ -309,7 +352,13 @@
                   Open Explorer To Create File
                 </div>
                 <!-- radio button-->
-                <div class="radio-button" group="setting-file-explorer">
+                <div
+                  class="radio-button"
+                  group="setting-file-explorer"
+                  id="Setting_OpenFileExplorerToCreateFile"
+                  used_as="app_setting"
+                  value="false"
+                >
                   <input type="radio" />
                   <label>
                     <span class="custom"></span>
@@ -324,10 +373,18 @@
             <div class="header">
               <div class="name">Default Directory</div>
               <!-- Select Dir -->
-              <div class="select-dir" height="35px" files="true" type="input">
+              <div
+                class="select-dir"
+                height="35px"
+                files="true"
+                type="input"
+                id="Setting_DefaultDir"
+                used_as="app_setting"
+                value="Learning"
+              >
                 <input type="text" name="" id="" value="Learning" />
                 <div class="info">
-                  <i class="fa-regular fa-folder-open"></i>
+                  <i class="fa-solid fa-floppy-disk"></i>
                 </div>
               </div>
             </div>
@@ -344,6 +401,7 @@
                 width="106px"
                 height="35px"
                 scale="0.92"
+                id="Setting_Reset"
               >
                 <div class="icon">
                   <i class="fa-solid fa-rotate"></i>
@@ -449,5 +507,8 @@
   </body>
 
   <script type="module" src="main.js"></script>
-  <script type="module" src="./components/bgAnimation.js"></script>
+  <script
+    type="module"
+    src="./components/Animations/BubbleAnimation.js"
+  ></script>
 </html>
