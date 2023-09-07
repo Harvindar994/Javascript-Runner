@@ -69,7 +69,7 @@ let SystemSettings = function () {
                     "Bubbles": 'bubbles-animation-active',
                     "Big Things": 'big-things-animation-active',
                     "Volcanic Ash": 'volcanic-ash-animation-active',
-                    "Winter Lake": 'winter-lake-animation-active'
+                    "Rymd": 'rymd-animation-active'
                 }
 
                 if (settings["Setting_BackgroundAnimation"]) {
@@ -112,7 +112,7 @@ let SystemSettings = function () {
                     "Bubbles": 'bubbles-animation-active',
                     "Big Things": 'big-things-animation-active',
                     "Volcanic Ash": 'volcanic-ash-animation-active',
-                    "Winter Lake": 'winter-lake-animation-active'
+                    "Rymd": 'rymd-animation-active'
                 }
 
                 if (settings["Setting_BackgroundAnimation"]) {

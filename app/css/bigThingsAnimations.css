@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Bungee+Hairline|Lato:300");
 .big-things-animation {
   visibility: hidden;
+  position: absolute;
+  inset: 0;
 }
 .big-things-animation a {
   text-decoration: none;

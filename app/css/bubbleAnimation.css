@@ -1,8 +1,7 @@
 .bubbles-animation {
-  position: fixed;
+  position: absolute;
+  inset: 0;
   z-index: -30;
-  top: 0;
-  left: 0;
   overflow: hidden;
   height: 100vh;
   width: 100vw;
